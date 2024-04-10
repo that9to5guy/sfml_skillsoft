@@ -1,0 +1,27 @@
+
+*********************************************
+Images and icons
+*********************************************
+
+BOARD   
+https://www.pngkey.com/detail/u2w7w7i1u2r5o0y3_tic-tac-toe-board-png-steel-frame-semi/
+
+LOGO    
+https://www.flaticon.com/free-icon/xo_5706044
+
+O   
+https://www.flaticon.com/free-icon/letter-o_7448233
+
+X   
+https://www.flaticon.com/free-icon/letter-x_7479685
+
+
+*********************************************
+Sounds
+*********************************************
+
+CLICK SOUND 
+https://mixkit.co/free-sound-effects/video-game/?page=2
+
+WINNER SOUND
+https://mixkit.co/free-sound-effects/win/
