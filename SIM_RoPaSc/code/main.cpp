@@ -19,7 +19,7 @@ int main()
         cout << "!! Error loading Characters !!" << endl;
         return EXIT_FAILURE;
     }
-    sf::Vector2u sprite_sheet_size = character_texture.getSize();     
+    sf::Vector2u sprite_sheet_size = character_texture.getSize();
     
     sf::Sprite rock_sprite;
     rock_sprite.setTexture(character_texture);
