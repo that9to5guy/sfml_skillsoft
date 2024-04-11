@@ -55,7 +55,7 @@ int main()
             }
         }
 
-        if (rock_yaxis < 560 && clock.getElapsedTime().asSeconds() > 0.01f) {
+        if (rock_yaxis < 560 && clock.getElapsedTime().asSeconds() > 0.05f) {
             cout << clock.getElapsedTime().asSeconds() << endl;
             rock_sprite.setPosition(sf::Vector2f(80, rock_yaxis++));
             paper_sprite.setPosition(sf::Vector2f(280, rock_yaxis++));
