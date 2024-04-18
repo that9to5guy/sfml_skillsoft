@@ -21,19 +21,24 @@ int main()
 
     while(window.isOpen())
     {
+        window.clear(sf::Color::White);
+		clickObjects.draw_windows(window);
+		window.display();
+
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
-                
                 cout << "Window closed successfully!" << endl;
-            }            
+            }
+            if (event.type == sf::Event::MouseButtonPressed) {
+				if (event.mouseButton.button == sf::Mouse::Left) {
+                    // sf::Vector2f posi = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    // cout << posi.x << " = " << posi.y <<endl;
+                    clickObjects.buttonPress(window.mapPixelToCoords(sf::Mouse::getPosition(window)), window);
+				}
+			}
         }
-
-        window.clear(sf::Color::Black);
-        window.draw(clickObjects.draw_background());
-        window.draw(clickObjects.draw_text());
-        window.display();
     }
     return 0;
 }
