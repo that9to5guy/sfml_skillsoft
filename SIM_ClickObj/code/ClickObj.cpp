@@ -21,9 +21,15 @@ sf::Sprite ClickObj::draw_grass(bool gf) {
     return gf ? grassPhone[1] : grassPhone[0] ;
 }
 
+sf::Text ClickObj::draw_coinValue(int n) {
+    coinName01.setString("Coins : " + std::to_string(n));
+    return coinName01;
+}
+
 void ClickObj::draw_windows(sf::RenderWindow& window) {
     window.draw(bgSprite);
     window.draw(textName01);
+    window.draw(draw_coinValue(coinValue));
     for(int i=0;i<4;i++) {
         window.draw(coinSprite[i]);
         window.draw(diamondSprite[i]);
@@ -38,6 +44,23 @@ void ClickObj::buttonPress(sf::Vector2f pos, sf::RenderWindow &window) {
         // Coins hit ?
         if(coinSprite[i].getGlobalBounds().contains(pos)) {
             coinCollect.play();
+            switch(i) {
+                case 0:
+                    coinValue+=1;
+                    break;
+                case 1:
+                    coinValue+=3;
+                    break;
+                case 2:
+                    coinValue+=9;
+                    break;
+                case 3:
+                    coinValue+=rand()%10;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         // Diamonds hit ?

@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 
 static bool grassFlag;
+static int coinValue;
 
 class ClickObj
 {
@@ -51,6 +52,7 @@ class ClickObj
         sf::Sprite draw_coins(int n);
         sf::Sprite draw_diamonds(int n);
         sf::Sprite draw_grass(bool gf);
+        sf::Text draw_coinValue(int n);
 
         void draw_windows(sf::RenderWindow& window);
         void buttonPress(sf::Vector2f pos, sf::RenderWindow &window);

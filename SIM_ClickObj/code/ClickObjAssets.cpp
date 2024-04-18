@@ -130,11 +130,11 @@ bool ClickObj::load_text() {
 
     coinName01.setFont(coin_font);
     coinName01.setString("Coins : ");
-    coinName01.setPosition(sf::Vector2f(50.0f, 50.0f));
+    coinName01.setPosition(sf::Vector2f(50.0f, 25.0f));
     coinName01.setCharacterSize(25);
-    coinName01.setFillColor(sf::Color::White);
-    coinName01.setOutlineColor(sf::Color::Magenta);
-    coinName01.setOutlineThickness(5);
+    coinName01.setFillColor(sf::Color::Black);
+    coinName01.setOutlineColor(sf::Color::Yellow);
+    coinName01.setOutlineThickness(3);
     return true;
 }
 
