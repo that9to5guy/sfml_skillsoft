@@ -1,5 +1,4 @@
-/*     Basic Window in SFML      **
-** icon, background, music, text */
+/* Tracking Mouse Actions in SFML */
 #include <iostream>
 #include "ClickObj.h"
 
@@ -14,7 +13,7 @@ int main()
 		return -1;
 	}
 
-    sf::RenderWindow window(sf::VideoMode(950, 540), "Basic Window", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(950, 540), "Click Objects", sf::Style::Titlebar | sf::Style::Close);
 
     sf::Image game_icon;
     game_icon.loadFromFile("../assets/clickMouse.png");

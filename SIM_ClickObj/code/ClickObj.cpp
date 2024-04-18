@@ -1,5 +1,4 @@
-/*     Basic Window in SFML      **
-** icon, background, music, text */
+/* Clicking on objects Mouse Actions in SFML */
 #include "ClickObj.h"
 
 bool ClickObj::init_game() {
