@@ -27,6 +27,19 @@ bool ClickObj::load_sprites() {
     coinSprite[3].setTexture(coinVase);
     coinSprite[3].setPosition(sf::Vector2f(400, 400));
 
+    sf::Vector2u grass_size = grass.getSize();
+    sf::IntRect irectDiamond0(0, 0, grass_size.x/2, grass_size.y);
+    sf::IntRect irectDiamond1(grass_size.x/2, 0, grass_size.x/2, grass_size.y);
+    grassPhone[0].setTexture(grass);
+    grassPhone[0].setPosition(sf::Vector2f(500, 175));
+    grassPhone[0].setOrigin(40.75f,46.5);
+    grassPhone[0].setTextureRect(irectDiamond0);
+    grassPhone[1].setTexture(grass);
+    grassPhone[1].setPosition(sf::Vector2f(500, 175));
+    grassPhone[1].setOrigin(40.75f,46.5);
+    grassPhone[1].setTextureRect(irectDiamond1);
+    grassPhone[1].setScale(sf::Vector2f(0.9f, 0.9f));
+
     sf::Vector2u diamonds_size = diamonds.getSize();
     for(int i=0;i<5;i++) {
         diamondSprite[i].setTexture(diamonds);
@@ -65,6 +78,9 @@ bool ClickObj::load_images() {
     if(!diamonds.loadFromFile("../assets/Collectibles/diamondColors01.png")) {
         return false;
     }
+    if(!grass.loadFromFile("../assets/MenuButtons/grassPhone.png")) {
+        return false;
+    }
     return true;
 }
 
@@ -77,6 +93,9 @@ bool ClickObj::load_sounds() {
 	}
     if (!diamondPressBuffer.loadFromFile("../audio/clickSound.mp3")) {
         return false;
+	}    
+    if (!grassBuffer.loadFromFile("../audio/retrobeep.mp3")) {
+        return false;
 	}
     bgSound.setBuffer(bgBuffer);
     bgSound.setVolume(20.0f);
@@ -84,7 +103,9 @@ bool ClickObj::load_sounds() {
     coinCollect.setBuffer(coinCollectBuffer);
     coinCollect.setVolume(75.0f);
     diamondPress.setBuffer(diamondPressBuffer);
-    diamondPress.setVolume(75.0f);
+    diamondPress.setVolume(75.0f);    
+    grassSound.setBuffer(grassBuffer);
+    grassSound.setVolume(25.0f);
     return true;
 }
 

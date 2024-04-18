@@ -17,6 +17,10 @@ sf::Sprite ClickObj::draw_diamonds(int n) {
     return diamondSprite[n];
 }
 
+sf::Sprite ClickObj::draw_grass(bool gf) {
+    return gf ? grassPhone[1] : grassPhone[0] ;
+}
+
 void ClickObj::draw_windows(sf::RenderWindow& window) {
     window.draw(bgSprite);
     window.draw(textName01);
@@ -24,6 +28,7 @@ void ClickObj::draw_windows(sf::RenderWindow& window) {
         window.draw(coinSprite[i]);
         window.draw(diamondSprite[i]);
     }
+    window.draw(draw_grass(grassFlag));
 }
 
 void ClickObj::buttonPress(sf::Vector2f pos, sf::RenderWindow &window) {
@@ -34,6 +39,7 @@ void ClickObj::buttonPress(sf::Vector2f pos, sf::RenderWindow &window) {
         if(coinSprite[i].getGlobalBounds().contains(pos)) {
             coinCollect.play();
         }
+
         // Diamonds hit ?
         if(diamondSprite[i].getGlobalBounds().contains(pos)) {
             diamondPress.play();
@@ -49,5 +55,11 @@ void ClickObj::buttonPress(sf::Vector2f pos, sf::RenderWindow &window) {
                 diamondFlag[i] = false;
             }
         }
+    }
+
+    // Grass hit ?
+    if(grassPhone[0].getGlobalBounds().contains(pos)) {
+        grassSound.play();
+        grassFlag = !grassFlag;
     }
 }
