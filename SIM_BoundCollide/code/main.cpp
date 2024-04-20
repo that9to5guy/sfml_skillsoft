@@ -22,6 +22,7 @@ int main()
     while(window.isOpen())
     {
         window.clear();
+        boco.update_sprites();
 		boco.draw_windows(window);
 		window.display();
 

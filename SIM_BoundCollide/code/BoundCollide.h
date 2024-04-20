@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <iostream>
 
 class BoundCollide 
 {
@@ -15,11 +16,7 @@ class BoundCollide
         sf::Texture skullTxr;
 
         sf::Sprite bgSprite;
-        sf::Sprite cashSpr[2];
-        sf::Sprite heartSpr[2];
-        sf::Sprite starSpr[2];
-        sf::Sprite lightSpr[2];
-        sf::Sprite skullSpr[2];
+        sf::Sprite obSprite[5][2];
 
         sf::Font txtFont;
         sf::Text txtText;
@@ -29,6 +26,8 @@ class BoundCollide
         sf::SoundBuffer clickBuffer;
         sf::Sound       clickSound;
 
+        sf::Clock clock;
+
         bool load_images();
         bool load_sprites();
         bool load_sounds();
@@ -36,7 +35,6 @@ class BoundCollide
 
     public:
         bool init_game();
-        
+        void update_sprites();
         void draw_windows(sf::RenderWindow& window);
-    
 };
