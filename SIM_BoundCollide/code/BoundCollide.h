@@ -29,7 +29,14 @@ class BoundCollide
         sf::SoundBuffer clickBuffer;
         sf::Sound       clickSound;
 
+        bool load_images();
+        bool load_sprites();
+        bool load_sounds();
+        bool load_text();
+
     public:
+        bool init_game();
+        
         void draw_windows(sf::RenderWindow& window);
     
 };

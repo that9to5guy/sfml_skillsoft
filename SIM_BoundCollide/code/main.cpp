@@ -8,8 +8,12 @@ using std::endl;
 int main()
 {
     BoundCollide boco;
+    if (!boco.init_game()) {
+		std::cout << "Unable to load game assets" << std::endl;
+		return -1;
+	}
 
-    sf::RenderWindow window(sf::VideoMode(650, 500), "Bounding & Collision", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Bounding & Collision", sf::Style::Titlebar | sf::Style::Close);
 
     sf::Image game_icon;
     game_icon.loadFromFile("../assets/collision.png");
