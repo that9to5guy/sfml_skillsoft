@@ -38,3 +38,8 @@ void BoundCollide::update_sprites() {
 void BoundCollide::click_sound() {
     clickSound.play();
 }
+
+sf::Sprite BoundCollide::check_sprite(int n)
+{
+    return obSprite[n][0];
+}

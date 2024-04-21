@@ -89,10 +89,10 @@ bool BoundCollide::load_sounds()
         return false;
 	}
     musicSound.setBuffer(musicBuffer);
-    musicSound.setVolume(30.0f);
+    musicSound.setVolume(20.0f);
     musicSound.setLoop(true);
     clickSound.setBuffer(clickBuffer);
-    clickSound.setVolume(75.0f);
+    clickSound.setVolume(50.0f);
     return true;
 }
 

@@ -22,7 +22,6 @@ int main()
     while(window.isOpen())
     {
         window.clear();
-        boco.update_sprites();
 		boco.draw_windows(window);
 		window.display();
 
@@ -32,10 +31,17 @@ int main()
                 window.close();
             }
             else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-                cout << "Mouse position: " << event.mouseButton.x << ", " << event.mouseButton.y << endl;
+                // cout << "Mouse position: " << event.mouseButton.x << ", " << event.mouseButton.y << endl;
                 boco.click_sound();
+                boco.update_sprites();
+                cout << "Global Bounds Sprites" << endl;
+                for(int j=0;j<5;j++) {
+                    sf::FloatRect gloBou = boco.check_sprite(j).getGlobalBounds();
+                    cout << gloBou.left << " " << gloBou.top << " " << gloBou.width << " " << gloBou.height << endl;
+                }
             }
         }
+
     }
 
     return 0;
