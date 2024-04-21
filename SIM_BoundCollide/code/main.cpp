@@ -31,6 +31,10 @@ int main()
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
+            else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+                cout << "Mouse position: " << event.mouseButton.x << ", " << event.mouseButton.y << endl;
+                boco.click_sound();
+            }
         }
     }
 

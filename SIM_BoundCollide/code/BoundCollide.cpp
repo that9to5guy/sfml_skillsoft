@@ -34,3 +34,7 @@ void BoundCollide::update_sprites() {
         }
     }
 }
+
+void BoundCollide::click_sound() {
+    clickSound.play();
+}

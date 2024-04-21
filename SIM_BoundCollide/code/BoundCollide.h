@@ -36,5 +36,6 @@ class BoundCollide
     public:
         bool init_game();
         void update_sprites();
+        void click_sound();
         void draw_windows(sf::RenderWindow& window);
 };
