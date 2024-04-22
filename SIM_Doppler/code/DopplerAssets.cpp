@@ -3,9 +3,6 @@
 
 bool DopplerRadio::load_images()
 {
-    // if(!bgScene.loadFromFile("../assets/bgScene.jpg")) {
-    //     return false;
-    // }
     if(!radioTexture.loadFromFile("../assets/radio.png")) {
         return false;
     }
@@ -48,16 +45,20 @@ bool DopplerRadio::load_text()
     if (!txtFont.loadFromFile("../assets/Gluten-Medium.ttf")) {
         return false;
     }
-    txtText.setFont(txtFont);
-    txtText.setString("Doppler Effect");
-    txtText.setPosition(sf::Vector2f(400.0f, 30.0f));
-    txtText.setCharacterSize(35);
-    txtText.setFillColor(sf::Color::Blue);
-    txtText.setOutlineColor(sf::Color::White);
-    txtText.setOrigin(sf::Vector2f(136.f,17.f));
-    txtText.setOutlineThickness(2);
-    // txtText.setRotation(10);
-    // txtText.setLetterSpacing(2.0f);
-    // txtText.setStyle(sf::Text::Style::Italic | sf::Text::Style::Bold);
+    for(int i=0;i<2;i++) {
+        txtText[i].setFont(txtFont);
+        txtText[i].setCharacterSize(35);
+        txtText[i].setFillColor(sf::Color::Blue);
+        txtText[i].setOutlineColor(sf::Color::White);
+        txtText[i].setOutlineThickness(2);
+        // txtText[i].setRotation(10);
+        // txtText[i].setLetterSpacing(2.0f);
+        // txtText[i].setStyle(sf::Text::Style::Italic | sf::Text::Style::Bold);
+    }
+    txtText[0].setString("Doppler Effect");
+    txtText[0].setOrigin(sf::Vector2f(136.f,17.f));
+    txtText[0].setPosition(sf::Vector2f(400.f,30.f));
+    txtText[1].setString("Volume : ");
+    txtText[1].setPosition(sf::Vector2f(30.f,530.f));
     return true;
 }

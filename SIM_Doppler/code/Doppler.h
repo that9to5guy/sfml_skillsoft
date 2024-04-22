@@ -15,7 +15,7 @@ class DopplerRadio
         sf::FloatRect circleBounds;
 
         sf::Font txtFont;
-        sf::Text txtText;
+        sf::Text txtText[2];
 
         sf::SoundBuffer musicBuffer;
         sf::Sound       musicSound;
