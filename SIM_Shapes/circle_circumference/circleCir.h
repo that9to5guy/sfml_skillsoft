@@ -7,7 +7,7 @@
 using std::cout;
 using std::endl;
 
-#define BALLS 6
+#define BALLS 36
 
 class circleCir {
     private:
@@ -25,12 +25,19 @@ class circleCir {
         double theta_deg[BALLS];
         double theta_rad[BALLS];
 
+        unsigned int r;
+        unsigned int g;
+        unsigned int b;
+        bool isCollided;
         bool load_sound();
         bool load_square();
         bool load_circle();
 
     public:
         bool init_simu();
-        void draw_window(sf::RenderWindow& window);
 
+        void move_circle(int n);
+        void check_collision(int n);
+
+        void draw_window(sf::RenderWindow& window);
 };

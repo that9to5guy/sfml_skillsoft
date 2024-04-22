@@ -28,6 +28,10 @@ int main()
                 window.close();
             }
         }
+
+        for(int i=0;i<BALLS;i++) {
+            circir.move_circle(i);
+        }
     }
 
     return 0;
