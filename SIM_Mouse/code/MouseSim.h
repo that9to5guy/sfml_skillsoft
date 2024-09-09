@@ -46,6 +46,3 @@ class MouseSim
         sf::Sprite& drawCircleX(int n);
         sf::Text& drawPara();
 };
-
-
-
