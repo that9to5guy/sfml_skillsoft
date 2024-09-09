@@ -10,7 +10,7 @@ using sf::Event;
 
 int main()
 {
-    RenderWindow window(VideoMode(600, 600), "Animation");
+    RenderWindow window(VideoMode(300, 300), "Animation");
 
     sf::Texture character_texture;
     if(!character_texture.loadFromFile("../assets/WalkRun.png")) {
