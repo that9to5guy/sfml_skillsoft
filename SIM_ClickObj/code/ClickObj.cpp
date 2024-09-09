@@ -1,70 +1,53 @@
 /* Clicking on objects Mouse Actions in SFML */
 #include "ClickObj.h"
 
-bool ClickObj::init_game() {
-    if (!load_assets()) {
-	  return false;		
-	}
-    
-    bgSprite.setTexture(bgTexture);
-    bgSprite.setScale(sf::Vector2f(0.5, 0.5f));
-
-    bgSound.play();
-
-    return true;
-}
-
-bool ClickObj::load_assets() {
-    if (!load_sounds() | !load_text() | !load_images()) {
-	  return false;		
-	}
-	return true;
-}
-
-bool ClickObj::load_images() {
-    if(!bgTexture.loadFromFile("../assets/Background/Background_Blue.png")) {
-        return false;
-    }
-    return true;
-}
-
-bool ClickObj::load_sounds() {
-    if (!bgBuffer.loadFromFile("../audio/cozyMusic01.mp3")) {
-        return false;
-	}
-    bgSound.setBuffer(bgBuffer);
-    bgSound.setVolume(25.0f);
-    bgSound.setLoop(true);
-    return true;
-}
-
-bool ClickObj::load_text() {
-    if (!text_font.loadFromFile("../fonts/Gluten-SemiBold.ttf")) {
-        return false;
-    }
-
-    textName01.setFont(text_font);
-    textName01.setString("Click The Buttons");
-    textName01.setPosition(sf::Vector2f(300.0f, 50.0f));
-    textName01.setCharacterSize(35);
-    textName01.setFillColor(sf::Color::Cyan);
-    textName01.setOutlineColor(sf::Color::Black);
-    //textName01.setOrigin(50.0f,50.0f);
-    textName01.setOutlineThickness(3);
-    // textName01.setRotation(10);
-    // textName01.setStyle(sf::Text::Style::Italic | sf::Text::Style::Bold);
-    return true;
-}
-
-bool ClickObj::play_sound() {
-    bgSound.play();
-    return true;
-}
-
 sf::Text ClickObj::draw_text() {
     return textName01;
 }
 
 sf::Sprite ClickObj::draw_background() {
     return bgSprite;
+}
+
+sf::Sprite ClickObj::draw_coins(int n) {
+    return coinSprite[n];
+}
+
+sf::Sprite ClickObj::draw_diamonds(int n) {
+    return diamondSprite[n];
+}
+
+void ClickObj::draw_windows(sf::RenderWindow& window) {
+    window.draw(bgSprite);
+    window.draw(textName01);
+    for(int i=0;i<4;i++) {
+        window.draw(coinSprite[i]);
+        window.draw(diamondSprite[i]);
+    }
+}
+
+void ClickObj::buttonPress(sf::Vector2f pos, sf::RenderWindow &window) {
+    static bool diamondFlag[4];
+    sf::Vector2u diamonds_size = diamonds.getSize();
+    for(int i=0;i<4;i++) {
+        // Coins hit ?
+        if(coinSprite[i].getGlobalBounds().contains(pos)) {
+            coinCollect.play();
+        }
+        // Diamonds hit ?
+        if(diamondSprite[i].getGlobalBounds().contains(pos)) {
+            diamondPress.play();
+            if(!diamondFlag[i]) {
+                sf::IntRect irectDiamond(4*diamonds_size.x/5, 0, diamonds_size.x/5, diamonds_size.y);
+                diamondSprite[i].setTextureRect(irectDiamond);
+                diamondSprite[i].setScale(sf::Vector2f(0.95f, 0.95f));
+                diamondFlag[i] = true;
+            } else {
+                sf::IntRect irectDiamond(i*diamonds_size.x/5, 0, diamonds_size.x/5, diamonds_size.y);
+                diamondSprite[i].setTextureRect(irectDiamond);
+                diamondSprite[i].setScale(sf::Vector2f(1.0f, 1.0f));
+                diamondFlag[i] = false;
+            }
+        }
+    }
 }
