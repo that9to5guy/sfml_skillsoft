@@ -60,7 +60,7 @@ void selection_sort(std::vector<int> &myArray, sf::RenderWindow &window, std::ve
     }
 
     arr_sorted = true;
-    heading.setString("Selection Sort Complete");
+    heading.setString("Select Sort Complete");
     heading.setOrigin(249.5f,13.5f);
     // std::cout << heading.getLocalBounds().getSize().x << " " << heading.getLocalBounds().getSize().y << std::endl;
 }

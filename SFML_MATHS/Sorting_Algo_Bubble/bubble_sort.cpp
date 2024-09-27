@@ -46,7 +46,7 @@ void bubble_sort(std::vector<int> &myArray, sf::RenderWindow &window, std::vecto
                 window.display();
 
                 // Sleep for a short duration to visualize the sorting process
-                sf::sleep(sf::milliseconds(10));
+                sf::sleep(sf::milliseconds(5));
 
                 // Reset the color of the swapped elements back to cyan
                 rectangles[j].setFillColor(sf::Color::Cyan);

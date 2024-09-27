@@ -45,7 +45,7 @@ void bubble_sort(std::vector<int> &myArray, sf::RenderWindow &window, std::vecto
                 window.display();
 
                 // Sleep for a short duration to visualize the sorting process
-                sf::sleep(sf::milliseconds(10));
+                sf::sleep(sf::milliseconds(5));
 
                 // Reset color of rectangles to cyan
                 rectangles[j].setFillColor(sf::Color::Cyan);
@@ -97,7 +97,7 @@ void bubble_sort(std::vector<int> &myArray, sf::RenderWindow &window, std::vecto
     }
 
     arr_sorted = true;
-    heading.setString("Bubble Sort Complete");
+    heading.setString("Cocktail Sort Complete");
     heading.setOrigin(249.5f,13.5f);
     // std::cout << heading.getLocalBounds().getSize().x << " " << heading.getLocalBounds().getSize().y << std::endl;
 }
